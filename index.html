@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Mortgage Calculator</TITLE>
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function checkForZero(field)
+{
+    if (field.value == 0 || field.value.length == 0) {
+        alert ("This field can't be 0!");
+        field.focus(); }
+    else
+        calculatePayment(field.form);
+}
+
+function cmdCalc_Click(form)
+{
+    if (form.price.value == 0 || form.price.value.length == 0) {
+        alert ("The Price field can't be 0!");
+        form.price.focus(); }
+    else if (form.ir.value == 0 || form.ir.value.length == 0) {
+        alert ("The Interest Rate field can't be 0!");
+        form.ir.focus(); }
+    else if (form.term.value == 0 || form.term.value.length == 0) {
+        alert ("The Term field can't be 0!");
+        form.term.focus(); }
+    else
+        calculatePayment(form);
+}
+
+function calculatePayment(form)
+{
+    princ = form.price.value - form.dp.value;
+    intRate = (form.ir.value/100) / 12;
+    months = form.term.value * 12;
+    form.pmt.value = Math.floor((princ*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+    form.principle.value = princ;
+    form.payments.value = months;
+}
+//-->
+</SCRIPT>
+
+<BODY>
+<TABLE>
+<TR>
+<TD VALIGN=TOP>
+
+<FORM NAME="MortgageMinder">
+
+<TABLE WIDTH=250 BORDER=5 BGCOLOR=SILVER CELLPADDING=2>
+<TR>
+<TD COLSPAN=2 ALIGN=CENTER>
+<B><FONT SIZE=+2 COLOR=BLUE>M<FONT SIZE=+1>ORTGAGE <FONT SIZE=+2>M<FONT SIZE=+1>INDER</FONT></B>
+</TD>
+</TR>
+
+<TR>
+<TD COLSPAN=2 WIDTH=50%> 
+<TABLE BORDER=0 CELLPADDING=2>
+
+<TR>
+<TD COLSPAN=2><B>Mortgage Data:</B></TD>
+
+<TR>
+<TD ALIGN=RIGHT>House Price:</TD>
+<TD>
+<INPUT 
+    TYPE=TEXT
+    NAME=price
+    VALUE="200000" 
+    SIZE=7
+    onBlur=checkForZero(this)
+    onChange=checkForZero(this)>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=RIGHT>Down Payment:</TD>
+<TD>
+ <INPUT 
+    TYPE=TEXT 
+    NAME=dp
+    VALUE=0 
+    onChange=calculatePayment(this.form) 
+    SIZE=7>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=RIGHT>Annual Interest Rate:</TD>
+<TD>
+<INPUT 
+    TYPE=TEXT
+    NAME=ir
+    VALUE="7.5" 
+    SIZE=4
+    onBlur=checkForZero(this)
+    onChange=checkForZero(this)>
+%
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=RIGHT>Term:</TD>
+<TD>
+
+<INPUT 
+    TYPE=TEXT
+    NAME=term
+    VALUE="30" 
+    SIZE=4
+    onBlur=checkForZero(this)
+    onChange=checkForZero(this)>
+Years
+</TD>
+</TR>
+
+</TABLE>
+</TD></TR>
+
+<TR>
+<TD>
+
+<TABLE BORDER=0 CELLPADDING=2>
+
+<TR>
+<TD COLSPAN=2><B>Results:</B></TD>
+<TR>
+<TD ALIGN=RIGHT>Mortgage Principle:</TD>
+<TD>
+
+<INPUT 
+    TYPE=TEXT
+    NAME=principle
+    SIZE=7>
+
+</TD>
+<TR>
+<TD ALIGN=RIGHT>Total Payments:</TD>
+<TD>
+<INPUT 
+    TYPE=TEXT
+    NAME=payments
+    SIZE=7>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=RIGHT>Monthly Payment:</TD>
+<TD>
+<INPUT 
+    TYPE=TEXT
+    NAME=pmt
+    SIZE=7>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=CENTER COLSPAN=2>
+<INPUT 
+    TYPE=BUTTON
+    NAME="cmdCalc" 
+    VALUE="Calculate"
+    onClick=cmdCalc_Click(this.form)>
+
+
+</TD>
+</TR>
+</TD></TR>
+</TABLE>
+
+</FORM></TD>
+
+<TD VALIGN=TOP>
+<H3>JavaScript Mortgage Calculator</H3>
+This page uses a form to create a mortgage calculator, and then uses JavaScript (displayed below the calculator) 
+to perform the actual calculations. 
+<P>
+Here's how you use this form:
+<OL>
+<LI>Enter the House Price.
+<LI>Enter the Down Payment.
+<LI>Enter the Annual Interest Rate percentage.
+<LI>Enter the Term, in years.
+<LI>Click Calculate.
+</OL>
+</TD>
+</TABLE>
+
+Here's the JavaScript:
+<PRE>
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--
+    function checkForZero(field) {
+        if (field.value == 0 || field.value.length == 0) {
+            alert ("This field can't be 0!");
+            field.focus(); }
+        else
+	    calculatePayment(field.form);
+    }
+
+    function cmdCalc_Click(form) {
+        if (form.price.value == 0 || form.price.value.length == 0) {
+            alert ("The Price field can't be 0!");
+            form.price.focus(); }
+        else if (form.ir.value == 0 || form.ir.value.length == 0) {
+            alert ("The Interest Rate field can't be 0!");
+            form.ir.focus(); }
+        else if (form.term.value == 0 || form.term.value.length == 0) {
+            alert ("The Term field can't be 0!");
+            form.term.focus(); }
+        else
+            calculatePayment(form);
+    }
+
+    function calculatePayment(form) {
+        princ = form.price.value - form.dp.value;
+        intRate = (form.ir.value/100) / 12;
+        months = form.term.value * 12;
+        form.pmt.value = Math.floor((princ*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
+  	form.principle.value = princ;
+	form.payments.value = months;
+    }
+//--&gt;
+&lt;/SCRIPT&gt;
+</PRE>
+
+</BODY>
+</HTML>
