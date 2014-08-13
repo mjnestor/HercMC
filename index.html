@@ -1,9 +1,39 @@
-<HTML>
-<HEAD>
-<TITLE>JavaScript Mortgage Calculator</TITLE>
-</HEAD>
 
-<SCRIPT LANGUAGE="JavaScript">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>HercMC</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="ie-emulation-modes-warning.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+<script type="text/javascript">
 <!--
 function checkForZero(field)
 {
@@ -39,57 +69,60 @@ function calculatePayment(form)
     form.payments.value = months;
 }
 //-->
-</SCRIPT>
+</script>
 
-<BODY>
-<TABLE>
-<TR>
-<TD VALIGN=TOP>
+  <body role="document">
 
-<FORM NAME="MortgageMinder">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">HercMC</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container theme-showcase" role="main">
 
-<TABLE WIDTH=250 BORDER=5 BGCOLOR=SILVER CELLPADDING=2>
-<TR>
-<TD COLSPAN=2 ALIGN=CENTER>
-<B><FONT SIZE=+2 COLOR=BLUE>M<FONT SIZE=+1>ORTGAGE <FONT SIZE=+2>M<FONT SIZE=+1>INDER</FONT></B>
-</TD>
-</TR>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>HercMC</h1>
+        <p>A simple mortgage calculator application for the world to use!</p>
+        <p>
+            <OL>
+<LI>Enter the House Price.
+<LI>Enter the Down Payment.
+<LI>Enter the Annual Interest Rate percentage.
+<LI>Enter the Term, in years.
+<LI>Click Calculate.
+</OL>
+</p>
+      
+<form name="MortgageMinder">
 
-<TR>
-<TD COLSPAN=2 WIDTH=50%> 
-<TABLE BORDER=0 CELLPADDING=2>
-
-<TR>
-<TD COLSPAN=2><B>Mortgage Data:</B></TD>
-
-<TR>
-<TD ALIGN=RIGHT>House Price:</TD>
-<TD>
-<INPUT 
+<h3>Mortgage Data:</h3>
+House Price:
+<br />
+<input 
     TYPE=TEXT
     NAME=price
     VALUE="200000" 
     SIZE=7
     onBlur=checkForZero(this)
     onChange=checkForZero(this)>
-</TD>
-</TR>
-
-<TR>
-<TD ALIGN=RIGHT>Down Payment:</TD>
-<TD>
- <INPUT 
+<br />
+Down Payment:
+<br />
+<INPUT 
     TYPE=TEXT 
     NAME=dp
     VALUE=0 
     onChange=calculatePayment(this.form) 
     SIZE=7>
-</TD>
-</TR>
-
-<TR>
-<TD ALIGN=RIGHT>Annual Interest Rate:</TD>
-<TD>
+<br />
+    Annual Interest Rate:
+<br />
 <INPUT 
     TYPE=TEXT
     NAME=ir
@@ -98,13 +131,9 @@ function calculatePayment(form)
     onBlur=checkForZero(this)
     onChange=checkForZero(this)>
 %
-</TD>
-</TR>
-
-<TR>
-<TD ALIGN=RIGHT>Term:</TD>
-<TD>
-
+<br />
+    Term:
+<br />
 <INPUT 
     TYPE=TEXT
     NAME=term
@@ -112,122 +141,37 @@ function calculatePayment(form)
     SIZE=4
     onBlur=checkForZero(this)
     onChange=checkForZero(this)>
-Years
-</TD>
-</TR>
-
-</TABLE>
-</TD></TR>
-
-<TR>
-<TD>
-
-<TABLE BORDER=0 CELLPADDING=2>
-
-<TR>
-<TD COLSPAN=2><B>Results:</B></TD>
-<TR>
-<TD ALIGN=RIGHT>Mortgage Principle:</TD>
-<TD>
-
+    Years
+<br />
+<h3>Results:</h3>
+Mortgage Principle:
+<br />
 <INPUT 
     TYPE=TEXT
     NAME=principle
     SIZE=7>
-
-</TD>
-<TR>
-<TD ALIGN=RIGHT>Total Payments:</TD>
-<TD>
+<br />
+    Total Payments:
+<br />
 <INPUT 
     TYPE=TEXT
     NAME=payments
     SIZE=7>
-</TD>
-</TR>
-
-<TR>
-<TD ALIGN=RIGHT>Monthly Payment:</TD>
-<TD>
+<br />
+    Monthly Payment:
+<br />
 <INPUT 
     TYPE=TEXT
     NAME=pmt
     SIZE=7>
-</TD>
-</TR>
-</TABLE>
-</TD>
-</TR>
-
-<TR>
-<TD ALIGN=CENTER COLSPAN=2>
+<br />
+<br />
 <INPUT 
     TYPE=BUTTON
     NAME="cmdCalc" 
     VALUE="Calculate"
     onClick=cmdCalc_Click(this.form)>
-
-
-</TD>
-</TR>
-</TD></TR>
-</TABLE>
-
-</FORM></TD>
-
-<TD VALIGN=TOP>
-<H3>JavaScript Mortgage Calculator</H3>
-This page uses a form to create a mortgage calculator, and then uses JavaScript (displayed below the calculator) 
-to perform the actual calculations. 
-<P>
-Here's how you use this form:
-<OL>
-<LI>Enter the House Price.
-<LI>Enter the Down Payment.
-<LI>Enter the Annual Interest Rate percentage.
-<LI>Enter the Term, in years.
-<LI>Click Calculate.
-</OL>
-</TD>
-</TABLE>
-
-Here's the JavaScript:
-<PRE>
-&lt;SCRIPT LANGUAGE="JavaScript"&gt;
-&lt;!--
-    function checkForZero(field) {
-        if (field.value == 0 || field.value.length == 0) {
-            alert ("This field can't be 0!");
-            field.focus(); }
-        else
-	    calculatePayment(field.form);
-    }
-
-    function cmdCalc_Click(form) {
-        if (form.price.value == 0 || form.price.value.length == 0) {
-            alert ("The Price field can't be 0!");
-            form.price.focus(); }
-        else if (form.ir.value == 0 || form.ir.value.length == 0) {
-            alert ("The Interest Rate field can't be 0!");
-            form.ir.focus(); }
-        else if (form.term.value == 0 || form.term.value.length == 0) {
-            alert ("The Term field can't be 0!");
-            form.term.focus(); }
-        else
-            calculatePayment(form);
-    }
-
-    function calculatePayment(form) {
-        princ = form.price.value - form.dp.value;
-        intRate = (form.ir.value/100) / 12;
-        months = form.term.value * 12;
-        form.pmt.value = Math.floor((princ*intRate)/(1-Math.pow(1+intRate,(-1*months)))*100)/100;
-  	form.principle.value = princ;
-	form.payments.value = months;
-    }
-//--&gt;
-&lt;/SCRIPT&gt;
-</PRE>
-
+</FORM>
+</div>
 </BODY>
 </HTML>
