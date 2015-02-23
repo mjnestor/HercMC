@@ -17,8 +17,12 @@
         <link href="bootstrap.min.css" rel="stylesheet" />
         <link href="bootstrap-theme.min.css" rel="stylesheet" />
         <link href="theme.css" rel="stylesheet" />
-		<script src="ie-emulation-modes-warning.js"></script>
-		<script src="ie10-viewport-bug-workaround.js"></script>
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+   		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="ie-emulation-modes-warning.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="ie10-viewport-bug-workaround.js"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via  -->
 		<!--[if lt IE 9]>
@@ -66,9 +70,11 @@
 		  <div class="row">
 		  	  <div class="col-sm-4">
 			  	   <div class="panel panel-default">
-				   		<h4 class="panel-title">Mortgage Information:</h4>
-						<div class="panel-body">
-                           <form name="MortgageMinder">
+				   		<div class="panel-heading">
+							 <h3 class="panel-title">Mortgage Information:</h3>
+						</div>
+			  	   		<div class="panel-body">
+                          <form name="MortgageMinder">
                               House Price:
                               <br />
                               <input
@@ -118,27 +124,27 @@
                               <input 
                                   type=text
                                   name=principle
-                                  size=7 disabled />
+                                  size=7 />
                               <br />
                               Total Payments:
                               <br />
                               <input 
                                   type=text
                                   name=payments
-                                  size=7 disabled />
+                                  size=7 />
                               <br />
                               Monthly Payment:
                               <br />
                               <input 
                                   type=text
                                   name=pmt
-                                  size=7 disabled />
-  							  <br />
+                                  size=7 />
+  							<br />
                               <br />
-          					  <button type="button" name="cmdCalc" class="btn btn-primary" onClick=cmdCalc_Click(this.form)>Calculate</button>
-  							  <br />
-  							  <br />
-                           </form>
+          					<button type="button" name="cmdCalc" class="btn btn-primary" onClick=cmdCalc_Click(this.form)>Calculate</button>
+  							<br />
+  							<br />
+                          </form>
 						</div>
 					</div>
 				</div>
